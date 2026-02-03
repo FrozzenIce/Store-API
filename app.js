@@ -5,12 +5,13 @@ const express = require("express")
 const app = express()
 
 const connectDB = require("./DB/connectDB")
+const products = require("./routes/products")
 
 const notFoundMiddleware = require("./middleware/not-found")
 const errorHandlerMiddleware = require("./middleware/error-handler")
 
 app.use(express.json())
-// app.use("/api/v1/")
+app.use("/api/v1/products", products)
 
 //routes
 app.get("/", (req, res) => {
